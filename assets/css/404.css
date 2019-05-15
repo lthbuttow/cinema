@@ -1,0 +1,23 @@
+.erro-404 {
+  height: 100vh;
+  width: 100%;
+  background-color: #F7FFF7;
+}
+.erro-content{
+  color: #0C0F14;
+  margin-top: 30vh; 
+  text-align: center;
+}
+.erro-content h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 5em;
+  margin: 15px;
+}
+.erro-content h1 span {
+  color: #DC143C;
+}
+.erro-content p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.75em;
+  margin-bottom: 2em;
+}
