@@ -2,7 +2,7 @@
 namespace Controllers;
 
 use \Core\Controller;
-use \Models\Usuarios;
+use \Models\Filme;
 
 class HomeController extends Controller {
 
@@ -10,8 +10,8 @@ class HomeController extends Controller {
 		$array = array();
 
 
-		$usuarios = new Usuarios();
-		$array['lista'] = $usuarios->getAll();
+//		$usuarios = new Usuarios();
+//		$array['lista'] = $usuarios->getAll();
 
 		$this->loadTemplate('home', $array);
 	}

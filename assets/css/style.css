@@ -13,7 +13,7 @@ body {
 .btn {
 	border: 3px solid #0C0F14;
   padding: 10px 30px;
-  font-family: 'Roboto', sans-serif;
+/*  font-family: 'Roboto', sans-serif;*/
 	color: #0C0F14;
 	font-size: 14px;
 	line-height: 20px;
@@ -97,6 +97,7 @@ body {
 .ingressos{
 	padding-top: 40px;
 	text-align: center;
+        margin-bottom: 250px;
 }
 
 .ingressos h1{
@@ -117,3 +118,30 @@ body {
 	margin: 10px auto 10px auto;
 }
 
+.ingressos p {
+    margin-bottom: 60px;
+}
+
+
+.footer {
+    width: 100%;
+    background: #DC143C; 
+    padding: 40px 0;
+}
+
+/*tabela*/
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

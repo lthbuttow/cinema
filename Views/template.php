@@ -11,22 +11,22 @@
 </head>
 <body>
 	<header class="header box-shadow">
-		<div class="container">
-			<a href="<?php echo BASE_URL; ?>" class="grid-4">cine<span>+</span></a>
-			<nav class="grid-12 header_nav">
-					<ul>
-						<li><a href="#ingressos">Ingressos</a></li>
-						<li><a href="#sobre">Sobre</a></li>
-						<li><a href="#contato">Contato</a></li>
-						<li><a href="login.html">Login</a></li>
-					</ul>
-			</nav>
-		</div>
+            <div class="container">
+                <a href="<?php echo BASE_URL; ?>" class="grid-4">cine<span>+</span></a>
+                <nav class="grid-12 header_nav">
+                    <ul>
+                        <li><a href="#ingressos">Ingressos</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
 	</header>
 	<?php $this->loadViewInTemplate($viewName, $viewData); ?>
-	<footer>
-		<div class="container">
-			<p>Footer</p>
+    <footer class="footer">
+		<div class="container ">
+                    <p>Footer</p>
 		</div>
 	</footer>
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>

@@ -4,18 +4,23 @@ namespace Models;
 use \Core\Model;
 
 class Usuarios extends Model {
+    public $conn;
 
-	public function getAll() {
-		$array = array();
+    public function __construct() {
+        $this->conn = parent::__construct();
+    }
 
-		$sql = "SELECT * FROM filme";
-		$sql = $this->db->query($sql);
+    public function getAll() {
+            $array = array();
 
-		if($sql->rowCount() > 0) {
-		$array = $sql->fetchAll();
-		}
+            $sql = "SELECT * FROM filme";
+            $sql = $this->conn->query($sql);
 
-		return $array;
-	}
+            if($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+            }
+
+            return $array;
+    }
 
 }

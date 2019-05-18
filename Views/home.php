@@ -4,8 +4,22 @@
 </section>
 <section class="container">
 	<div class="ingressos">
-	<h1>Ingressos</h1>
-	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic aliquam, ipsa alias architecto commodi accusantium eaque repellat consectetur quis dolorem quidem deleniti assumenda! Perferendis eius nisi reiciendis dolores veritatis illum!</p>
+	<h1>Adicionar Filme</h1>
+        <form method="POST" action="<?php echo BASE_URL; ?>filme/inserir">
+
+                <div>
+                    <label for="titulo">Título:</label>
+                    <input type="text" name="titulo" id="titulo" />
+                </div>
+
+                <div>
+                    <label for="duracao">duracao:</label>
+                    <input type="text" name="duracao" id="duracao" />
+                </div>
+
+                <button type="submit" class="btn">Salvar</button>
+
+            </form>
 	</div>
 </section>
 
