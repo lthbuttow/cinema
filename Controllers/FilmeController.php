@@ -43,15 +43,19 @@ class FilmeController extends Controller {
     public function inserir() {
     $array = array();
 
+    if (isset($_POST['titulo']) && !empty($_POST['titulo'])){
+        
     $filme = new Filme();
-    $titulo = addslashes($_POST['titulo']);
-    $duracao = addslashes($_POST['duracao']);    
+    $titulo = $_POST['titulo'];
+    $duracao = $_POST['duracao'];    
     $filme->setTitulo($titulo);
     $filme->setDuracao($duracao);
 
-    $filmePDO = new FilmePDO();
-    $filmePDO->insert($filme);
-    header("Location: ".BASE_URL);
+    $this->filmePDO->insert($filme);
+    
+    }
+    
+    $this->loadTemplate('addFilme', $array);
 
     }
     

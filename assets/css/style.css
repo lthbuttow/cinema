@@ -145,3 +145,8 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+/*addfilme*/
+.addFilme form {
+    margin-bottom: 20px;
+}
