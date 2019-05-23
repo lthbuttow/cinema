@@ -57,11 +57,6 @@ body {
 	color: #DC143C;
 }
 
-.header .container>a span:hover {
-	color: #0C0F14;
-	transition: .3s;
-}
-
 .header_nav {
 	text-align: right;
 }

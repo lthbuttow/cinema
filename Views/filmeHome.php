@@ -19,7 +19,7 @@
                       <td>'.$filme->getDuracao().'</td>
                       <td><a href="filme/ingresso">Comprar Ingresso</a>
                       <a href="filme/editar/'.$filme->getId().'">Editar Filme</a>
-                      <a href="filme/excluir/'.$filme->getId().'">Excluir Ingresso</a></td>
+                      <a href="filme/excluir/'.$filme->getId().'">Excluir Filme</a></td>
                     </tr>';
              echo $sql;
             }

@@ -51,24 +51,24 @@ class FilmePDO extends Model {
             $stmt->bindValue(1, $id);
            if($stmt->execute()){
                
-               $rs = $stmt->fetchAll(\PDO::FETCH_OBJ);
-               $filmes = [];
-               foreach ($rs as $resultado) {
-                   array_push($filmes, $this->resultSetToFilme($resultado));
-              }
+               $rs = $stmt->fetch(\PDO::FETCH_OBJ);
+               $filme = [];
+               
+               array_push($filme, $this->resultSetToFilme($rs));
+           
 
            }
             
-            return $filmes;
+            return $filme;
         
         } catch (PDOException $ex) {
-            echo "\nExceção no findAll da classe FilmePDO: " . $ex->getMessage();
+            echo "\nExceção no findById da classe FilmePDO: " . $ex->getMessage();
        }      
         
     }    
     public function update($filme){
         try{
-            $stmt = $this->conn->prepare('UPDATE filme SET titulo = :titulo, duracao = :duracao WHERE filme_id = :id');
+            $stmt = $this->db->prepare('UPDATE filme SET titulo = :titulo, duracao = :duracao WHERE filme_id = :id');
             $stmt->bindValue(":titulo", $filme->getTitulo());
             $stmt->bindValue(":duracao", $filme->getDuracao());
             $stmt->bindValue(":id", $filme->getId());
