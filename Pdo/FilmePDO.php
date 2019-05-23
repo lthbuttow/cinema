@@ -45,22 +45,50 @@ class FilmePDO extends Model {
        }      
         
     }
+    public function findById($id){
+       try{
+            $stmt = $this->db->prepare("SELECT * FROM cinema.filme WHERE filme_id = ?");
+            $stmt->bindValue(1, $id);
+           if($stmt->execute()){
+               
+               $rs = $stmt->fetchAll(\PDO::FETCH_OBJ);
+               $filmes = [];
+               foreach ($rs as $resultado) {
+                   array_push($filmes, $this->resultSetToFilme($resultado));
+              }
+
+           }
+            
+            return $filmes;
+        
+        } catch (PDOException $ex) {
+            echo "\nExceção no findAll da classe FilmePDO: " . $ex->getMessage();
+       }      
+        
+    }    
     public function update($filme){
         try{
             $stmt = $this->conn->prepare('UPDATE filme SET titulo = :titulo, duracao = :duracao WHERE filme_id = :id');
             $stmt->bindValue(":titulo", $filme->getTitulo());
             $stmt->bindValue(":duracao", $filme->getDuracao());
             $stmt->bindValue(":id", $filme->getId());
-            if ($stmt->execute()){ 	
-                echo "Filme atualizado com sucesso";
-            }
+            return $stmt->execute();
+            
         } catch (PDOException $ex) {
             echo "\nExceção no update da classe FilmePDO: " . $ex->getMessage();
         }        
     }    
     
-    public function delete(){
-        
+    public function delete($id){
+        try{
+            $stmt = $this->db->prepare("DELETE FROM filme WHERE filme_id = ?");
+            $stmt->bindValue(1, $id);
+            return $stmt->execute();
+            
+        } catch (PDOException $ex) {
+            echo "\nExceção no delete da classe FilmePDO: " . $ex->getMessage();
+            return false;
+        }        
     }
     
     private function resultSetToFilme($resultado){

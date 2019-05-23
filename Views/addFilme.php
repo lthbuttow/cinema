@@ -4,6 +4,9 @@
 </section>
 <section class="container">
 	<div class="ingressos addFilme">
+        <?php if(isset($status) && $status == 'inserido'): ?>
+            <div class="aviso">Filme Inserido com sucesso.</div>
+        <?php endif; ?>
 	<h1>Adicionar Filme</h1>
         <form method="POST" >
 
