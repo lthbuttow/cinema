@@ -4,7 +4,7 @@
 </section>
 <section class="container">
 	<div class="ingressos">
-	<h1>Selecione o Filme</h1>
+	<h1>Selecione a Sessão</h1>
             <table>
                 <tr>
                     <th>Título</th>
@@ -12,14 +12,12 @@
                     <th>Opções</th>
                 </tr>
             <?php 
-            foreach ($filmes as $filme) {
+            foreach ($sessoes as $s) {
                 $sql = '
                     <tr>
-                      <td>'.$filme->getTitulo().'</td>
-                      <td>'.$filme->getDuracao().'</td>
+                      <td>'.$s->getId().'</td>
+                      <td></td>
                       <td><a href="sessao">Comprar Ingresso</a>
-                      <a href="filme/editar/'.$filme->getId().'">Editar Filme</a>
-                      <a href="filme/excluir/'.$filme->getId().'">Excluir Filme</a></td>
                     </tr>';
              echo $sql;
             }
@@ -27,3 +25,4 @@
             </table>
 	</div>
 </section>
+

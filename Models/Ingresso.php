@@ -5,39 +5,27 @@ use \Core\Model;
 
 class Ingresso {
     
-    private $gerarIngresso;
-    private $consultarAssentoIngresso;
-    private $consultarTipoIngresso;
+    private $codigoAssentoIngresso;
+    private $tipoIngresso;
     
     public function __construct() {
         
     }
     
-    public function getGerarIngresso() {
-        return $this->gerarIngresso;
+    public function getCodigoAssentoIngresso() {
+        return $this->codigoAssentoIngresso;
     }
 
-    public function getConsultarAssentoIngresso() {
-        return $this->consultarAssentoIngresso;
+    public function getTipoIngresso() {
+        return $this->tipoIngresso;
     }
 
-    public function getConsultarTipoIngresso() {
-        return $this->consultarTipoIngresso;
+    public function setCodigoAssentoIngresso($codigoAssentoIngresso) {
+        $this->codigoAssentoIngresso = $codigoAssentoIngresso;
     }
 
-    public function setGerarIngresso($gerarIngresso) {
-        $this->gerarIngresso = $gerarIngresso;
+    public function setTipoIngresso($tipoIngresso) {
+        $this->tipoIngresso = $tipoIngresso;
     }
-
-    public function setConsultarAssentoIngresso($consultarAssentoIngresso) {
-        $this->consultarAssentoIngresso = $consultarAssentoIngresso;
-    }
-
-    public function setConsultarTipoIngresso($consultarTipoIngresso) {
-        $this->consultarTipoIngresso = $consultarTipoIngresso;
-    }
-
-
-
     
 }
