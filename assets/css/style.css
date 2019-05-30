@@ -77,6 +77,46 @@ body {
 	padding: 10px 0;
 }
 
+/*footer*/
+.footer {
+    width: 100%;
+    background: #DC143C; 
+    padding: 40px 0;
+    color: #F7FFF7;
+}
+
+.footer .container p>span {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.25em;
+}
+
+.social li{
+    color: #F7FFF7;
+    display: inline-block;
+    margin-left: .5em;
+}
+
+.icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url(../img/sprite.svg);
+}
+.facebook2 {
+  width: 32px;
+  height: 32px;
+  background-position: 0 0;
+}
+.spotify {
+  width: 32px;
+  height: 32px;
+  background-position: -48px 0;
+}
+.youtube {
+  width: 32px;
+  height: 32px;
+  background-position: -96px 0;
+}
+
 /* home */
 .home-intro {
 	width: 100%;
@@ -115,13 +155,6 @@ body {
 
 .ingressos p {
     margin-bottom: 60px;
-}
-
-
-.footer {
-    width: 100%;
-    background: #DC143C; 
-    padding: 40px 0;
 }
 
 /*tabela*/

@@ -16,11 +16,18 @@ class SessaoController extends Controller {
     }
     public function index() {
         
+        echo 'Escolha um Filme!';        
+
+    }
+    
+    public function selectSession($id) {
+        
         $array = array();
-        $array['sessoes'] = $this->sessaoPDO->findAll();
+        $array['sessoes'] = $this->sessaoPDO->findAll($id);
         
         $this->loadTemplate('sessaoHome', $array);
-    }
+    }    
+    
     
 //    public function inserir() {
 //    $array = array();

@@ -25,9 +25,10 @@ class SessaoPDO extends Model {
         }
         
     }
-    public function findAll(){
+    public function findAll($filme_id){
        try{
-            $stmt = $this->db->prepare("SELECT * FROM sessao, sessao_filme WHERE sessao.filme_id = sessao_filme.filme_id AND sessao_filme.filme_id = 4");
+            $stmt = $this->db->prepare("SELECT * FROM sessao, sessao_filme WHERE sessao.filme_id = sessao_filme.filme_id AND sessao_filme.filme_id = ?");
+            $stmt->bindValue(1, $filme_id);
            if($stmt->execute()){
                
                $rs = $stmt->fetchAll(\PDO::FETCH_OBJ);

@@ -17,7 +17,7 @@
                     <tr>
                       <td>'.$filme->getTitulo().'</td>
                       <td>'.$filme->getDuracao().'</td>
-                      <td><a href="sessao">Comprar Ingresso</a>
+                      <td><a href="sessao/selectSession/'.$filme->getId().'">Comprar ingressos</a>
                       <a href="filme/editar/'.$filme->getId().'">Editar Filme</a>
                       <a href="filme/excluir/'.$filme->getId().'">Excluir Filme</a></td>
                     </tr>';

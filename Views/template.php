@@ -26,7 +26,13 @@
 	<?php $this->loadViewInTemplate($viewName, $viewData); ?>
     <footer class="footer">
 		<div class="container ">
-                    <p>Footer</p>
+                    <p class="grid-12"><span>cine+</span> Todos os direitos reservados ©</p>
+                    <ul class="grid-4 social">
+                        <li><a href="http://facebook.com" class="icon facebook2"></a></li>
+                        <li><a href="http://facebook.com" class="icon spotify"></a></li>
+                        <li><a href="http://facebook.com" class="icon youtube"></a></li>
+                    </ul>
+
 		</div>
 	</footer>
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>

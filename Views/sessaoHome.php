@@ -11,7 +11,7 @@
                     <th>Duração</th>
                     <th>Opções</th>
                 </tr>
-            <?php 
+            <?php
             foreach ($sessoes as $s) {
                 $sql = '
                     <tr>
