@@ -7,17 +7,21 @@
 	<h1>Selecione a Sessão</h1>
             <table>
                 <tr>
-                    <th>Título</th>
-                    <th>Duração</th>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th>Valor Inteiro</th>
+                    <th>Valor Meia</th>
                     <th>Opções</th>
                 </tr>
             <?php
             foreach ($sessoes as $s) {
                 $sql = '
                     <tr>
-                      <td>'.$s->getId().'</td>
-                      <td></td>
-                      <td><a href="sessao">Comprar Ingresso</a>
+                      <td>'.$s->getDataSessao().'</td>
+                      <td>'.$s->getHoraSessao().'</td>
+                      <td>'.$s->getValorInteira().'</td>
+                      <td>'.$s->getValorMeia().'</td>
+                      <td><a href="http://localhost/cinema/sessao/consultaSala/'.$s->getId().'">Escolher Lugar</a>
                     </tr>';
              echo $sql;
             }

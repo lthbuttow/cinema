@@ -3,31 +3,38 @@
 namespace Controllers;
 
 use \Core\Controller;
-//use \Models\Filme;
-//use \Pdo\FilmePDO;
-use \Models\Sessao;
 use \Pdo\SessaoPDO;
+use \Pdo\SalaPDO;
 
 class SessaoController extends Controller {
     private $sessaoPDO;
-    
+    private $salaPDO;
+
     public function __construct() {
         $this->sessaoPDO = new SessaoPDO();
+        $this->salaPDO = new SalaPDO();
     }
     public function index() {
         
-        echo 'Escolha um Filme!';        
+        echo "\n\n Escolha um Filme!";        
 
     }
     
     public function selectSession($id) {
         
         $array = array();
-        $array['sessoes'] = $this->sessaoPDO->findAll($id);
+        $array['sessoes'] = $this->sessaoPDO->selecionarSessao($id);
         
         $this->loadTemplate('sessaoHome', $array);
     }    
     
+    public function consultaSala($id) {
+        
+       $array = array();
+       $array['assentos'] = $this->salaPDO->consultarSala($id);
+        
+        $this->loadTemplate('salaAssento', $array);
+    }      
     
 //    public function inserir() {
 //    $array = array();

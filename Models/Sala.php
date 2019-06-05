@@ -3,7 +3,7 @@ namespace Models;
 
 use \Core\Model;
 
-class Assento {
+class Sala {
     
     private $numeroSala;
     private $capacidadeSala;
