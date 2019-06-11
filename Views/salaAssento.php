@@ -7,19 +7,15 @@
 	<h1>Escolha o lugar</h1>
             <table>
                 <tr>
-                    <th>A</th>
-                    <th>B</th>
-                    <th>C</th>
-                    <th>D</th>
+                    <th>Lugares</th>
+                    <th>Ações</th>
                 </tr>
             <?php
             foreach ($assentos as $ass) {
                 $sql = '
                     <tr>
                       <td>'.$ass->getAssento().'</td>
-                      <td>teste</td>
-                      <td>teste</td>
-                      <td>teste</td>
+                      <td><a href="http://localhost/cinema/ingresso/reservar/'.$ass->getAssento().'">Reservar</a>  
                     </tr>';
              echo $sql;
             }
