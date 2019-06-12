@@ -7,7 +7,9 @@ class Ingresso {
     
     private $codigoAssentoIngresso;
     private $tipoIngresso;
-    
+    private $ingressoSessao;
+
+
     public function __construct() {
         
     }
@@ -19,6 +21,10 @@ class Ingresso {
     public function getTipoIngresso() {
         return $this->tipoIngresso;
     }
+    
+    public function getIngressoSessao() {
+        return $this->ingressoSessao;
+    } 
 
     public function setCodigoAssentoIngresso($codigoAssentoIngresso) {
         $this->codigoAssentoIngresso = $codigoAssentoIngresso;
@@ -28,4 +34,7 @@ class Ingresso {
         $this->tipoIngresso = $tipoIngresso;
     }
     
+    public function setIngressoSessao($sessao) {
+        $this->ingressoSessao = $sessao;
+    }      
 }

@@ -8,7 +8,8 @@ class Sala {
     private $numeroSala;
     private $capacidadeSala;
     private $assento;
-    
+    private $sessaoSala;
+
     public function __construct() {
         
     }
@@ -24,6 +25,10 @@ class Sala {
     public function getAssento() {
         return $this->assento;
     }
+    
+    public function getSessaoSala() {
+        return $this->sessaoSala;
+    }    
 
     public function setNumeroSala($numeroSala) {
         $this->numeroSala = $numeroSala;
@@ -37,6 +42,9 @@ class Sala {
         $this->assento = $assento;
     }
     
+    public function setSessaoSala($sessao) {
+        $this->sessaoSala = $sessao;
+    }    
     
 }
 

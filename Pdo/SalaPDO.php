@@ -34,6 +34,7 @@ class SalaPDO extends Model {
         $sala->setNumeroSala($resultado->numero);
         $sala->setCapacidadeSala($resultado->capacidade);
         $sala->setAssento($resultado->assento_id);
+        $sala->setSessaoSala($resultado->id_sessao);
         
         return $sala;
     }
