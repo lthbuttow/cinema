@@ -39,9 +39,11 @@ class IngressoController {
         $type = $_POST['ticketType'];
         
         if($this->ingressoPDO->consultarTipoIngresso($type)){
-            echo 'Tipo válido';
+            if($this->IngressoPDO->consultarAssentoIngresso($sessao, $cdIngresso)){
+                
+            }
         } else {
-            echo 'deu ruim';
+            $array['statusTipoIngresso'] = 'Tipo Inválido';
         }
         exit;
                 
