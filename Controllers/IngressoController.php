@@ -6,10 +6,10 @@ use \Core\Controller;
 use \Pdo\SessaoPDO;
 use \Pdo\IngressoPDO;
 use \Pdo\SalaPDO;
-use Models\Ingresso;
+use \Models\Ingresso;
 
-class IngressoController {
-    private $IngressoPDO;
+class IngressoController extends Controller {
+    private $ingressoPDO;
 
     public function __construct() {
         $this->ingressoPDO = new IngressoPDO();
@@ -39,23 +39,15 @@ class IngressoController {
         $type = $_POST['ticketType'];
         
         if($this->ingressoPDO->consultarTipoIngresso($type)){
-            if($this->IngressoPDO->consultarAssentoIngresso($sessao, $cdIngresso)){
-                
+            if($this->ingressoPDO->consultarAssentoIngresso($sessao, $cdIngresso)){
+                echo 'ingresso ok';
+            } else {
+                $array['statusAssento'] = 'Assento Ocupado';
             }
         } else {
             $array['statusTipoIngresso'] = 'Tipo Inválido';
         }
         exit;
-                
-//        $ingresso = new Ingresso();
-//        $ingresso->setCodigoAssentoIngresso($cdIngresso);
-//        $ingresso->setIngressoSessao($sessao);
-//        $ingresso->setTipoIngresso($type);
-        
-
-//        if($this->filmePDO->insert($filme)) {
-//            $array['status'] = 'inserido';
-//        }
 
         }
     }      
