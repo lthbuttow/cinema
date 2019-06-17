@@ -37,12 +37,12 @@ class IngressoPDO extends Model {
         }
     }
     
-    public function gerarIngresso($sessaoId, $cdIngresso, $type) {
+    public function gerarIngresso($ingresso) {
         try {
             $stmt = $this->db->prepare("INSERT INTO ingresso (codigo_assento_ingresso, tipo, sessao_id) VALUES (?,?,?)");
-            $stmt->bindValue(1, $cdIngresso);
-            $stmt->bindValue(2, $type);
-            $stmt->bindValue(3, $sessaoId);
+            $stmt->bindValue(1, $ingresso->getCodigoAssentoIngresso());
+            $stmt->bindValue(2, $ingresso->getTipoIngresso());
+            $stmt->bindValue(3, $ingresso->getIngressoSessao());
             
             if($stmt->execute()){
                return true;
