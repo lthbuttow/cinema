@@ -41,5 +41,3 @@
 	</div>
 </section>
 
-
-<!--<a href="http://localhost/cinema/ingresso/reservar/'.$ass->getAssento().'/'.$ass->getSessaoSala().'">Reservar</a>-->

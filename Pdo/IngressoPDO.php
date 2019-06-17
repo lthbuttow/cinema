@@ -36,8 +36,25 @@ class IngressoPDO extends Model {
             echo "\nExceção no consultarAssentoIngresso da classe IngressoPDO: " . $ex->getMessage();
         }
     }
+    
+    public function gerarIngresso($sessaoId, $cdIngresso, $type) {
+        try {
+            $stmt = $this->db->prepare("INSERT INTO ingresso (codigo_assento_ingresso, tipo, sessao_id) VALUES (?,?,?)");
+            $stmt->bindValue(1, $cdIngresso);
+            $stmt->bindValue(2, $type);
+            $stmt->bindValue(3, $sessaoId);
+            
+            if($stmt->execute()){
+               return true;
+            } else {
+               return false;  
+            } 
+            
+                      
+        } catch (PDOException $ex) {
+            echo "\nExceção no gerarIngresso da classe IngressoPDO: " . $ex->getMessage();
+        }
+    }    
 }
 
-//SELECT * FROM cinema.sala, cinema.sessao_sala, cinema.sala_assento WHERE sessao_sala.id_sala = sala.id_sala AND sala.id_sala = sala_assento.sala_id AND sessao_sala.id_sessao = 7 AND sala_assento.assento_id = 1
 
-//query consultarAssentoIngresso

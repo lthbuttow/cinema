@@ -38,17 +38,22 @@ class IngressoController extends Controller {
         $sessao = $_POST['sessaoId'];
         $type = $_POST['ticketType'];
         
+        
         if($this->ingressoPDO->consultarTipoIngresso($type)){
             if($this->ingressoPDO->consultarAssentoIngresso($sessao, $cdIngresso)){
-                echo 'ingresso ok';
-            } else {
                 $array['statusAssento'] = 'Assento Ocupado';
+            } else {
+                if($this->ingressoPDO->gerarIngresso($sessao, $cdIngresso, $type)){
+                  $array['statusAssento'] = 'Ingresso Reservado';  
+                }
+                  $array['statusAssento'] = 'Erro ao resrvar Ingresso'; 
             }
         } else {
             $array['statusTipoIngresso'] = 'Tipo Inválido';
         }
-        exit;
 
         }
+        
+        $this->loadTemplate('reserva', $array);
     }      
 }
