@@ -10,9 +10,11 @@ use \Models\Ingresso;
 
 class IngressoController extends Controller {
     private $ingressoPDO;
+    private $sessaoPDO;
 
     public function __construct() {
         $this->ingressoPDO = new IngressoPDO();
+        $this->sessaoPDO = new SessaoPDO();
     }
     public function index() {
         
@@ -49,6 +51,7 @@ class IngressoController extends Controller {
                 $array['statusAssento'] = 'Assento Ocupado';
             } else {
                 if($this->ingressoPDO->gerarIngresso($ingresso)){
+                  $this->sessaoPDO->verificaLotacao($sessao);
                   $array['statusAssento'] = 'Ingresso Reservado';  
                 }else {
                   $array['statusAssento'] = 'Erro ao reservar Ingresso';

@@ -5,12 +5,14 @@
 <section class="container">
 	<div class="ingressos">
 	<h1>Selecione a Sessão</h1>
+        <p>Sessões com Status 1 já estão lotadas</p>
             <table>
                 <tr>
                     <th>Data</th>
                     <th>Horário</th>
                     <th>Valor Inteiro</th>
                     <th>Valor Meia</th>
+                    <th>Status</th>
                     <th>Opções</th>
                 </tr>
             <?php
@@ -21,6 +23,7 @@
                       <td>'.$s->getHoraSessao().'</td>
                       <td>'.$s->getValorInteira().'</td>
                       <td>'.$s->getValorMeia().'</td>
+                      <td>'.$s->getSessaoEncerrada().'</td>
                       <td><a href="http://localhost/cinema/sessao/consultaSala/'.$s->getId().'">Escolher Lugar</a>
                     </tr>';
              echo $sql;
