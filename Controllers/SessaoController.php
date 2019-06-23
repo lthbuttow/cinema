@@ -5,6 +5,8 @@ namespace Controllers;
 use \Core\Controller;
 use \Pdo\SessaoPDO;
 use \Pdo\SalaPDO;
+use \Pdo\FilmePDO;
+use Models\Sessao;
 
 class SessaoController extends Controller {
     private $sessaoPDO;
@@ -13,6 +15,7 @@ class SessaoController extends Controller {
     public function __construct() {
         $this->sessaoPDO = new SessaoPDO();
         $this->salaPDO = new SalaPDO();
+        $this->filmePDO = new FilmePDO();
     }
     public function index() {
         
@@ -35,64 +38,55 @@ class SessaoController extends Controller {
         
         $this->loadTemplate('salaAssento', $array);
     }      
+
+    public function selecionarFilme() {
+        
+       $array = array();
+       $array['filmes'] = $this->filmePDO->findAll();
+        
+        $this->loadTemplate('addSessao', $array);
+    }
     
-//    public function inserir() {
-//    $array = array();
-//
-//    if (isset($_POST['titulo']) && !empty($_POST['titulo'])){
-//        
-//    $filme = new Filme();
-//    $titulo = $_POST['titulo'];
-//    $duracao = $_POST['duracao'];    
-//    $filme->setTitulo($titulo);
-//    $filme->setDuracao($duracao);
-//
-//    if($this->filmePDO->insert($filme)) {
-//        $array['status'] = 'inserido';
-//    }
-//    
-//    }
-//    
-//    $this->loadTemplate('addFilme', $array);
-//
-//    }
-//    
-//    public function excluir($id) {
-//    if(!empty($id)) {
-//        
-//        if($this->filmePDO->delete($id)){
-//            header("Location: ".BASE_URL); 
-//        }
-//        
-//    }
-//         
-//    echo 'errrrrrrrro';
-//       
-//    } 
-//
-//    public function editar($id) {
-//    $array = array();
-//    
-//    $array['filme'] = $this->filmePDO->findById($id);
-//
-//        if (isset($_POST['titulo']) && !empty($_POST['titulo'])){
-//
-//        $filmeUpdate = new Filme();
-//        $titulo = $_POST['titulo'];
-//        $duracao = $_POST['duracao'];
-//        $filme_id = $id;
-//        $filmeUpdate->setId($filme_id);
-//        $filmeUpdate->setTitulo($titulo);
-//        $filmeUpdate->setDuracao($duracao);
-//
-//        if($this->filmePDO->update($filmeUpdate)) {
-//            $array['status'] = 'atualizado';
-//            $array['filme'] = $this->filmePDO->findById($id);
-//        }
-//    }
-//    
-//        $this->loadTemplate('editaFilme', $array);
-//
-//    }    
+    public function selecionarSala($filmeid) {
+        
+       $array = array();
+       $array['filmeid'] = $filmeid;
+       $array['salas'] = $this->salaPDO->findAll();
+       
+       $this->loadTemplate('addSessaoSala', $array);
+    }
+    
+    public function add($salaid, $filmeid) {
+        
+       $array = array();
+       $array['salaid'] = $salaid;
+       $array['filmeid'] = $filmeid;
+       $array['salas'] = $this->salaPDO->findAll();
+       
+       if (isset($_POST['data']) && !empty($_POST['data'])){
+
+       $sessao = new Sessao();
+       $data = $_POST['data'];
+       $horario = $_POST['horario'];    
+       $inteira = $_POST['inteira'];  
+       $meia = $_POST['meia'];  
+       $sessaoEncerrada = $_POST['sessao'];  
+       $sessao->setDataSessao($data);
+       $sessao->setHoraSessao($horario);
+       $sessao->setValorInteira($inteira);
+       $sessao->setValorMeia($meia);
+       $sessao->setSessaoEncerrada($sessaoEncerrada);
+       $sessao->setFilme($filmeid);
+       $sessao->setSala($salaid);
+       
+       if($this->sessaoPDO->insert($sessao)) {
+           $array['status'] = 'inserido';
+       }
+
+       }
+       
+       $this->loadTemplate('addSess', $array);
+    }     
+    
 
 }

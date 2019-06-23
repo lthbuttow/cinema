@@ -27,17 +27,41 @@ class SalaPDO extends Model {
             echo "\nExceção no consultarSala da classe SalaPDO: " . $ex->getMessage();
        }      
         
+    }
+
+    public function findAll(){
+       try{
+            $stmt = $this->db->prepare("SELECT * FROM sala ORDER BY id_sala");
+           if($stmt->execute()){
+               
+               $rs = $stmt->fetchAll(\PDO::FETCH_OBJ);
+               $salas = [];
+               foreach ($rs as $resultado) {
+                   array_push($salas, $this->resultSetToSala($resultado));
+              }
+
+           }
+            
+            return $salas;
+        
+        } catch (PDOException $ex) {
+            echo "\nExceção no findAll da classe SalaPDO: " . $ex->getMessage();
+       }      
+        
     }    
     
     private function resultSetToSala($resultado){
         $sala = new Sala();
         $sala->setNumeroSala($resultado->numero);
         $sala->setCapacidadeSala($resultado->capacidade);
-        $sala->setAssento($resultado->assento_id);
-        $sala->setSessaoSala($resultado->id_sessao);
-        
+        if(isset($resultado->assento_id)){
+            $sala->setAssento($resultado->assento_id);
+        }        
+        if(isset($resultado->id_sessao)){
+            $sala->setSessaoSala($resultado->id_sessao);
+        }
         return $sala;
-    }
+    }   
     
 }
 
