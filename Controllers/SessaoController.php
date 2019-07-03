@@ -86,7 +86,59 @@ class SessaoController extends Controller {
        }
        
        $this->loadTemplate('addSess', $array);
-    }     
+    }
+    
+    public function editaSessao($id) {
+    $array = array();
+    
+    $array['sessao'] = $this->sessaoPDO->findById($id);
+
+        if (isset($_POST['horario']) && !empty($_POST['horario'])){
+
+        $sessao = new Sessao();
+        $data = $_POST['data'];
+        $horario = $_POST['horario'];    
+        $inteira = $_POST['inteira'];  
+        $meia = $_POST['meia'];  
+        $sessaoEncerrada = $_POST['sessao'];
+        $salaid = $_POST['sala'];
+        $filmeid = $_POST['filme']; 
+        $sessao->setDataSessao($data);
+        $sessao->setHoraSessao($horario);
+        $sessao->setValorInteira($inteira);
+        $sessao->setValorMeia($meia);
+        $sessao->setSessaoEncerrada($sessaoEncerrada);
+        $sessao->setFilme($filmeid);
+        $sessao->setSala($salaid);
+        $sessao->setId($id);
+
+        if($this->sessaoPDO->update($sessao)) {
+            $array['status'] = 'atualizado';
+            $array['sessao'] = $this->sessaoPDO->findById($id);
+        }
+    }
+    
+        $this->loadTemplate('editaSessao', $array);
+
+    }      
+    
+    public function excluirSessao($id) {
+    $array = [];
+    if(!empty($id)) {
+        
+        if($this->sessaoPDO->delete($id)){
+            $array['sessaoDeletada'] = "sucesso";
+        } else {
+            $array['sessaoDeletada'] = "erro";
+        }
+        
+    }
+         
+    
+    $this->loadTemplate('home', $array);
+       
+    }
+    
     
 
 }

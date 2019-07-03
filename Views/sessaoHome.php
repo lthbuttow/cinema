@@ -25,6 +25,9 @@
                       <td>'.$s->getValorMeia().'</td>
                       <td>'.$s->getSessaoEncerrada().'</td>
                       <td><a href="http://localhost/cinema/sessao/consultaSala/'.$s->getId().'">Escolher Lugar</a>
+                          <a href="http://localhost/cinema/sessao/editaSessao/'.$s->getId().'">Editar Sessão</a>
+                          <a href="http://localhost/cinema/sessao/excluirSessao/'.$s->getId().'">Deletar Sessão</a>
+                      </td>
                     </tr>';
              echo $sql;
             }

@@ -76,6 +76,9 @@ body {
 	line-height: 1.25em;
 	padding: 10px 0;
 }
+.aviso {
+    margin-bottom: 10px
+}
 
 /*footer*/
 .footer {

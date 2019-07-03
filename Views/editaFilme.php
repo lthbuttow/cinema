@@ -9,7 +9,7 @@
             <div class="aviso">Filme Atualizado com sucesso.</div>
         <?php endif; ?>
         <?php if(isset($status) && !$status == 'atualizado'): ?>
-            <div class="aviso">Filme Atualizado com sucesso.</div>
+            <div class="aviso">Não foi possível atualizar filme.</div>
         <?php endif; ?>
 	<h1>Editar Filme</h1>
         <form method="POST" >
